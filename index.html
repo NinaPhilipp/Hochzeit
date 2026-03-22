@@ -641,7 +641,7 @@
 </section>
 
 <!-- COUNTDOWN -->
-<section class="countdown-section" id="countdown">
+<section class="countdown-section" id="countdown" style="scroll-margin-top:0">
   <div class="section-inner" style="text-align:center">
     <p class="section-label" data-de="Noch nicht lange hin" data-en="Not long to go">Noch nicht lange hin</p>
     <h2 class="section-title" style="color:#fff" data-de="Der große Tag" data-en="The Big Day">Der große Tag</h2>
@@ -670,7 +670,7 @@
 </section>
 
 <!-- LOCATION & ABLAUF -->
-<section class="location-section" id="location">
+<section class="location-section" id="location" style="scroll-margin-top:0">
   <div class="section-inner">
     <p class="section-label" data-de="Wo wir feiern" data-en="Where we celebrate">Wo wir feiern</p>
     <h2 class="section-title">Die <em>Location</em></h2>
@@ -697,7 +697,7 @@
     </div>
 
     <!-- ABLAUF -->
-    <div id="ablauf" style="margin-top:5rem">
+    <div id="ablauf" style="margin-top:5rem;scroll-margin-top:80px">
       <p class="section-label" data-de="Was euch erwartet" data-en="What to expect">Was euch erwartet</p>
       <h2 class="section-title" data-de="Tagesablauf" data-en="Schedule">Tages<em>ablauf</em></h2>
       <div class="ornament">
@@ -715,7 +715,7 @@
 </section>
 
 <!-- WHERE TO STAY -->
-<section class="stay-section" id="stay">
+<section class="stay-section" id="stay" style="scroll-margin-top:0">
   <div class="section-inner">
     <p class="section-label" data-de="Wo ihr schlafen könnt" data-en="Where to stay">Wo ihr schlafen könnt</p>
     <h2 class="section-title" data-de="Unterkunft" data-en="Accommodation">Unter<em>kunft</em></h2>
@@ -807,7 +807,7 @@
     </div>
 
     <!-- ANREISE -->
-    <div id="anreise" style="margin-top:4rem;">
+    <div id="anreise" style="margin-top:4rem;scroll-margin-top:80px">
       <p class="section-label" data-de="Wie ihr zu uns kommt" data-en="How to get here">Wie ihr zu uns kommt</p>
       <h2 class="section-title" data-de="Anreise" data-en="Getting here">An<em>reise</em></h2>
       <div class="ornament">
@@ -996,7 +996,7 @@
 </section>
 
 <!-- FAQ -->
-<section style="background:var(--cream);" id="faq">
+<section style="background:var(--cream);" id="faq" style="scroll-margin-top:0">
   <div class="section-inner">
     <p class="section-label" data-de="Fragen & Antworten" data-en="Questions & Answers">Fragen & Antworten</p>
     <h2 class="section-title">Häufige <em>Fragen</em></h2>
@@ -1076,14 +1076,14 @@
   <p style="margin-top:2rem;font-size:0.75rem;opacity:0.5;" data-de="Wir freuen uns auf euch 🌿" data-en="We can't wait to celebrate with you 🌿">Wir freuen uns auf euch 🌿</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // NAV scroll
+<script>
+  // NAV + LANG SWITCHER scroll effect
   const nav = document.getElementById('nav');
   const langSwitcher = document.getElementById('langSwitcher');
   window.addEventListener('scroll', () => {
-    const s = window.scrollY > 80;
-    nav.classList.toggle('scrolled', s);
-    langSwitcher.classList.toggle('scrolled', s);
+    const scrolled = window.scrollY > 80;
+    nav.classList.toggle('scrolled', scrolled);
+    langSwitcher.classList.toggle('scrolled', scrolled);
   });
 
   // LANGUAGE SWITCHER
@@ -1095,24 +1095,13 @@
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
     document.querySelectorAll('[data-de][data-en]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang);
+      if (el.children.length === 0) {
+        el.textContent = el.getAttribute('data-' + lang);
+      }
     });
-
-    // Hero eyebrow (already handled above)
-    // Hero date special case
-    const heroDate = document.querySelector('.hero-date');
-    if (heroDate) {
-      heroDate.textContent = lang === 'de'
-        ? '25. Juli 2026 · Kopenhagen, Dänemark'
-        : '25 July 2026 · Copenhagen, Denmark';
-    }
-
-    // Video hint button
-    const hint = document.querySelector('.video-hint');
-    if (hint) hint.childNodes[1].textContent = lang === 'de' ? ' Eigenes Video einfügen' : ' Add your own video';
   }
 
-  // COUNTDOWN — set your wedding date here
+  // COUNTDOWN
   const weddingDate = new Date('2026-07-25T13:00:00');
 
   function updateCountdown() {
@@ -1120,36 +1109,41 @@
     const diff = weddingDate - now;
 
     if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '0';
-      document.getElementById('cd-hours').textContent = '0';
-      document.getElementById('cd-mins').textContent = '0';
-      document.getElementById('cd-secs').textContent = '0';
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+        document.getElementById(id).textContent = '00';
+      });
       return;
     }
 
     const days  = Math.floor(diff / 86400000);
     const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins  = Math.floor((diff % 3600000) / 60000);
-    const secs  = Math.floor((diff % 60000) / 1000);
+    const mins  = Math.floor((diff % 3600000)  / 60000);
+    const secs  = Math.floor((diff % 60000)    / 1000);
 
-    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
-    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+    document.getElementById('cd-days').textContent  = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
   }
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // FAQ toggle
+  // FAQ TOGGLE
   function toggleFaq(item) {
-    // also update answer text when language changes
     item.classList.toggle('open');
   }
 
-  // VIDEO upload
+  // VIDEO
   function loadVideo(event) {
     const file = event.target.files[0];
     if (!file) return;
     const url = URL.createObjectURL(file);
-    
+    const video = document.getElementById('heroVideo');
+    video.innerHTML = '<source src="' + url + '" type="' + file.type + '">';
+    video.load();
+    video.play();
+  }
+</script>
+</body>
+</html>
