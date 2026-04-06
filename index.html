@@ -423,66 +423,48 @@
 
     .card-link:hover { color: var(--sage); }
 
-    /* ── TIMELINE ── */
-   <div style="text-align:left;padding:2rem 0 0;">
-
-  <!-- Haupttag -->
-  <p style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light);margin-bottom:1.4rem;"
-     data-de="Samstag, 25. Juli 2026" data-en="Saturday, 25 July 2026">
-    Samstag, 25. Juli 2026
-  </p>
-
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-time">ab 12:30</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Ankommen" data-en="Arrival">Ankommen</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">13:00</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Freie Trauung" data-en="Ceremony">Freie Trauung</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">14:00</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Velkomstdrink" data-en="Welcome Drinks">Velkomstdrink</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">15:00</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Kaffee &amp; Torte" data-en="Coffee &amp; Cake">Kaffee &amp; Torte</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">17:30</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Essen" data-en="Dinner">Essen</div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-time">19:00</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-title" data-de="Cocktails, Musik &amp; Tanz" data-en="Cocktails, Music &amp; Dancing">Cocktails, Musik &amp; Tanz</div>
-      </div>
-    </div>
-
-  </div>
+      /* ── TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 24px 1fr;
+      align-items: start;
+      gap: 0 1rem;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: calc(80px + 1rem + 11px);
+      top: 22px;
+      width: 1px;
+      height: calc(100% + 0px);
+      background: var(--cream-dark);
+    }
+    .timeline-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--text-light);
+      padding-top: 2px;
+      text-align: right;
+    }
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      border: 2px solid var(--sage-light);
+      margin-top: 5px;
+      justify-self: center;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      padding-bottom: 1.8rem;
+    }
 
   <!-- Vorabend -->
   <div style="margin-top:3.5rem;padding:2rem 2rem 1.8rem;border:1px solid var(--cream-dark);border-radius:2px;">
