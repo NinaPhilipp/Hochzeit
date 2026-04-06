@@ -424,64 +424,83 @@
     .card-link:hover { color: var(--sage); }
 
     /* ── TIMELINE ── */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 3rem;
-      position: relative;
-    }
+   <div style="text-align:left;padding:2rem 0 0;">
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6.5rem;
-      top: 0; bottom: 0;
-      width: 1px;
-      background: var(--cream-dark);
-    }
+  <!-- Haupttag -->
+  <p style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light);margin-bottom:1.4rem;"
+     data-de="Samstag, 25. Juli 2026" data-en="Saturday, 25 July 2026">
+    Samstag, 25. Juli 2026
+  </p>
 
-    .timeline-item {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      padding: 1.5rem 0;
-    }
+  <div class="timeline">
 
-    .timeline-time {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--sage);
-      min-width: 5rem;
-      text-align: right;
-      padding-top: 0.1rem;
-    }
+    <div class="timeline-item">
+      <div class="timeline-time">ab 12:30</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Ankommen" data-en="Arrival">Ankommen</div>
+      </div>
+    </div>
 
-    .timeline-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--sage);
-      border-radius: 50%;
-      margin-top: 0.3rem;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
+    <div class="timeline-item">
+      <div class="timeline-time">13:00</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Freie Trauung" data-en="Ceremony">Freie Trauung</div>
+      </div>
+    </div>
 
-    .timeline-content { flex: 1; }
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Velkomstdrink" data-en="Welcome Drinks">Velkomstdrink</div>
+      </div>
+    </div>
 
-    .timeline-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      color: var(--text);
-    }
+    <div class="timeline-item">
+      <div class="timeline-time">15:00</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Kaffee &amp; Torte" data-en="Coffee &amp; Cake">Kaffee &amp; Torte</div>
+      </div>
+    </div>
 
-    .timeline-desc {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 0.25rem;
-      line-height: 1.6;
-    }
+    <div class="timeline-item">
+      <div class="timeline-time">17:30</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Essen" data-en="Dinner">Essen</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-time">19:00</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-title" data-de="Cocktails, Musik &amp; Tanz" data-en="Cocktails, Music &amp; Dancing">Cocktails, Musik &amp; Tanz</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Vorabend -->
+  <div style="margin-top:3.5rem;padding:2rem 2rem 1.8rem;border:1px solid var(--cream-dark);border-radius:2px;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-light);margin-bottom:0.6rem;"
+       data-de="Velkomstdrink – Vorabend" data-en="Welcome Drinks – Evening Before">
+      Velkomstdrink – Vorabend
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--text);margin-bottom:0.9rem;"
+       data-de="Freitag, 24. Juli 2026 · ab 18:00 Uhr" data-en="Friday, 24 July 2026 · from 6:00 PM">
+      Freitag, 24. Juli 2026 &nbsp;·&nbsp; ab 18:00 Uhr
+    </p>
+    <p style="font-size:0.92rem;color:var(--text-light);line-height:1.7;"
+       data-de="Lasst uns das Wochenende gemeinsam einläuten." data-en="Let's kick off the weekend together.">
+      Lasst uns das Wochenende gemeinsam einläuten.
+    </p>
+  </div>
+
+</div>
 
     /* ── STAY ── */
     .stay-section { background: var(--cream-dark); }
