@@ -498,10 +498,14 @@
       background: var(--cream);
       padding: 2rem;
       border-bottom: 2px solid var(--sage);
-      transition: background 0.3s;
+       transition: background 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .hotel-card:hover { background: #fff; }
+    .hotel-card:hover {
+      background: #fff;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(78,107,74,0.1);
+    }
 
     .hotel-tag {
       display: inline-block;
