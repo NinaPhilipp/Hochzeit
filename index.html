@@ -651,6 +651,19 @@
       .countdown-sep { display: none; }
     }
 
+    .confetti-particle {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  font-size: 14px;
+  z-index: 9999;
+  animation: confettiFly linear forwards;
+}
+@keyframes confettiFly {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(var(--tr)) scale(0.4); opacity: 0; }
+}
+
   </style>
 </head>
 <body>
@@ -773,42 +786,42 @@
             <div class="timeline-time">ab 12:30</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Ankommen" data-en="Arrival">Ankommen</div>
+              <div class="timeline-title hover-confetti" data-de="Ankommen" data-en="Arrival">Ankommen</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-time">13:00</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Freie Trauung" data-en="Ceremony">Freie Trauung</div>
+              <div class="timeline-title hover-confetti" data-de="Freie Trauung" data-en="Ceremony">Freie Trauung</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-time">14:00</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Velkomstdrink" data-en="Welcome Drinks">Velkomstdrink</div>
+              <div class="timeline-title hover-confetti" data-de="Velkomstdrink" data-en="Welcome Drinks">Velkomstdrink</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-time">15:00</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Kaffee &amp; Torte" data-en="Coffee &amp; Cake">Kaffee &amp; Torte</div>
+              <div class="timeline-title hover-confetti" data-de="Kaffee &amp; Torte" data-en="Coffee &amp; Cake">Kaffee &amp; Torte</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-time">17:30</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Essen" data-en="Dinner">Essen</div>
+              <div class="timeline-title hover-confetti" data-de="Essen" data-en="Dinner">Essen</div>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-time">19:00</div>
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <div class="timeline-title" data-de="Cocktails, Musik &amp; Tanz" data-en="Cocktails, Music &amp; Dancing">Cocktails, Musik &amp; Tanz</div>
+              <div class="timeline-title hover-confetti" data-de="Cocktails, Musik &amp; Tanz" data-en="Cocktails, Music &amp; Dancing">Cocktails, Musik &amp; Tanz</div>
             </div>
           </div>
         </div>
@@ -1317,6 +1330,35 @@
     video.play();
   }
 
+  function spawnConfetti(x, y) {
+    const flags = ['🇩🇰','🇩🇰','🇩🇰','🎊','🇩🇰','🇩🇰'];
+    for (let i = 0; i < 10; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-particle';
+      el.textContent = flags[Math.floor(Math.random() * flags.length)];
+      const angle = (Math.random() * 260 + 140) * Math.PI / 180;
+      const dist = 60 + Math.random() * 80;
+      const tx = Math.cos(angle) * dist;
+      const ty = Math.sin(angle) * dist;
+      const tr = (Math.random() - 0.5) * 720 + 'deg';
+      const dur = 0.5 + Math.random() * 0.4;
+      el.style.cssText = `left:${x}px; top:${y}px; --tx:${tx}px; --ty:${ty}px; --tr:${tr}; animation-duration:${dur}s;`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), dur * 1000 + 50);
+    }
+  }
+
+document.querySelectorAll('.hover-confetti').forEach(el => {
+  let iv = null;
+  el.addEventListener('mouseenter', () => {
+    const fire = () => {
+      const r = el.getBoundingClientRect();
+      spawnConfetti(r.left + Math.random() * r.width, r.top + r.height * 0.4);
+    };
+    fire(); iv = setInterval(fire, 180);
+  });
+  el.addEventListener('mouseleave', () => clearInterval(iv));
+});
   
       // NEU RSVP:
 async function submitRsvp() {
