@@ -423,6 +423,19 @@
 
     .card-link:hover { color: var(--sage); }
 
+    .info-block {
+      background: #fff;
+      border: 1px solid var(--cream-dark);
+      border-left: 3px solid var(--sage);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .info-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(78,107,74,0.1);
+    }
+
       /* ── TIMELINE ── */
     .timeline { display: flex; flex-direction: column; gap: 0; }
     .timeline-item {
@@ -833,7 +846,7 @@
 
     <!-- CITY HOTELS + AIRBNB -->
     <p class="section-label" style="margin-top:3rem;margin-bottom:1rem;" data-de="Mehrere Tage in Kopenhagen?" data-en="Staying a few days in Copenhagen?">Mehrere Tage in Kopenhagen?</p>
-    <div style="background:#fff;border:1px solid var(--cream-dark);padding:2rem;border-left:3px solid var(--sage);margin-bottom:2rem;">
+    <div class="info-block">
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--text);margin-bottom:0.8rem;"
         data-de="🏙️ Innenstadt-Hotel oder Airbnb"
         data-en="🏙️ City-centre hotel or Airbnb">🏙️ Innenstadt-Hotel oder Airbnb</p>
@@ -863,7 +876,7 @@
         <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--text);margin-bottom:0.8rem;"
           data-de="🚇 Vom Kopenhagener Zentrum zur Location"
           data-en="🚇 From Copenhagen city centre to the venue">🚇 Vom Kopenhagener Zentrum zur Location</p>
-        <div style="background:#fff;border:1px solid var(--cream-dark);padding:1.6rem;border-left:3px solid var(--sage);">
+        <div class="info-block">
           <p style="font-size:0.88rem;color:var(--text-light);line-height:1.9;"
             data-de="S-Bahn <strong>Linie A</strong> Richtung Hillerød St. oder <strong>Linie E</strong> Richtung Holte St. · ab <strong>København H</strong> oder <strong>Nørreport</strong> → Haltestelle <strong>Gentofte</strong> → ca. 15 min · alle 10–15 min"
             data-en="S-train <strong>Line A</strong> towards Hillerød St. or <strong>Line E</strong> towards Holte St. · from <strong>København H</strong> or <strong>Nørreport</strong> → Stop: <strong>Gentofte</strong> → approx. 15 min · every 10–15 min">
@@ -994,7 +1007,7 @@
         data-de="🚗 Mit dem Auto — Mautgebühren"
         data-en="🚗 By car — Toll fees">🚗 Mit dem Auto — Mautgebühren</p>
 
-      <div style="background:#fff;border:1px solid var(--cream-dark);padding:2rem;border-left:3px solid var(--sage-light);margin-bottom:1rem;">
+      <div class="info-block">
         <p style="font-size:0.88rem;color:var(--text-light);line-height:1.8;margin-bottom:1.2rem;"
           data-de="Dänemark hat keine Autobahnmaut für PKW — aber zwei kostenpflichtige Brücken auf dem Weg nach Kopenhagen. Bitte einplanen:"
           data-en="Denmark has no motorway toll for cars — but two paid bridges on the way to Copenhagen. Please plan ahead:">
