@@ -1128,9 +1128,11 @@
     document.getElementById('btn-de').classList.toggle('active', lang === 'de');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-    document.querySelectorAll('[data-de][data-en]').forEach(el => {
+  document.querySelectorAll('[data-de][data-en]').forEach(el => {
       if (el.children.length === 0) {
         el.textContent = el.getAttribute('data-' + lang);
+      } else if (el.tagName.match(/^H[1-6]$/)) {
+        el.innerHTML = el.getAttribute('data-' + lang);
       }
     });
   }
