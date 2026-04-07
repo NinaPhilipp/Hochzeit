@@ -19,17 +19,22 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+    }
 
     body {
-  font-family: 'Jost', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  overflow-x: hidden;
-  margin: 0;    /* neu */
-  padding: 0;   /* neu */
-  position: relative;
-}
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+      margin: 0;
+      padding-bottom: 180px;
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+    }
 
     /* ── NAV ── */
     nav {
@@ -586,14 +591,15 @@
 
     /* ── FOOTER ── */
     footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
       background: var(--sage-dark);
       color: rgba(255,255,255,0.7);
+      text-align: center;
       padding: 4rem 2rem;
-      width: 100%;
       box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
     .footer-names {
