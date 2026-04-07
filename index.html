@@ -1220,43 +1220,6 @@
 </footer>
 
 
-      // NEU RSVP:
-async function submitRsvp() {
-  const first = document.getElementById('rsvp-first').value.trim();
-  const last = document.getElementById('rsvp-last').value.trim();
-  const answer = document.querySelector('input[name="rsvp-answer"]:checked');
-  const diet = document.getElementById('rsvp-diet').value.trim();
-
-  if (!first || !last || !answer) {
-    alert('Bitte fülle alle Pflichtfelder aus.');
-    return;
-  }
-
-  const btn = document.getElementById('rsvp-btn');
-  btn.textContent = '...';
-  btn.disabled = true;
-
-  const res = await fetch('https://formspree.io/f/xjgplzea', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      vorname: first,
-      nachname: last,
-      antwort: answer.value === 'yes' ? 'Ja, ich bin dabei! 🎉' : 'Leider kann ich nicht.',
-      ernaehrung: diet || '–'
-    })
-  });
-
-  if (res.ok) {
-    document.getElementById('rsvp-confirm').style.display = 'block';
-    btn.style.display = 'none';
-  } else {
-    alert('Etwas hat nicht geklappt – bitte versuche es nochmal.');
-    btn.textContent = 'Absenden';
-    btn.disabled = false;
-  }
-}      
-
 <script>
   // NAV + LANG SWITCHER scroll effect
   const nav = document.getElementById('nav');
@@ -1327,6 +1290,44 @@ async function submitRsvp() {
     video.load();
     video.play();
   }
+
+  
+      // NEU RSVP:
+async function submitRsvp() {
+  const first = document.getElementById('rsvp-first').value.trim();
+  const last = document.getElementById('rsvp-last').value.trim();
+  const answer = document.querySelector('input[name="rsvp-answer"]:checked');
+  const diet = document.getElementById('rsvp-diet').value.trim();
+
+  if (!first || !last || !answer) {
+    alert('Bitte fülle alle Pflichtfelder aus.');
+    return;
+  }
+
+  const btn = document.getElementById('rsvp-btn');
+  btn.textContent = '...';
+  btn.disabled = true;
+
+  const res = await fetch('https://formspree.io/f/xjgplzea', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      vorname: first,
+      nachname: last,
+      antwort: answer.value === 'yes' ? 'Ja, ich bin dabei! 🎉' : 'Leider kann ich nicht.',
+      ernaehrung: diet || '–'
+    })
+  });
+
+  if (res.ok) {
+    document.getElementById('rsvp-confirm').style.display = 'block';
+    btn.style.display = 'none';
+  } else {
+    alert('Etwas hat nicht geklappt – bitte versuche es nochmal.');
+    btn.textContent = 'Absenden';
+    btn.disabled = false;
+  }
+}      
 </script>
 </body>
 </html>
