@@ -567,6 +567,81 @@
       color: var(--text);
     }
 
+    <!-- RSVP -->
+<section style="background:var(--cream);" id="rsvp">
+  <div class="section-inner">
+    <p class="section-label" data-de="Anmeldung" data-en="RSVP">Anmeldung</p>
+    <h2 class="section-title" data-de="Seid ihr <em>dabei?</em>" data-en="Will you <em>join us?</em>">Seid ihr <em>dabei?</em></h2>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-icon">💌</div>
+      <div class="ornament-line"></div>
+    </div>
+
+    <p style="color:var(--text-light);line-height:1.8;max-width:600px;margin-bottom:0.8rem;"
+       data-de="Wir freuen uns riesig, diesen besonderen Tag mit euch zu feiern! Bitte gebt uns bis zum 1. Mai 2026 Bescheid, ob ihr dabei seid."
+       data-en="We'd love to celebrate this special day with you! Please let us know by 1 May 2026 whether you can make it.">
+      Wir freuen uns riesig, diesen besonderen Tag mit euch zu feiern! Bitte gebt uns bis zum <strong>1. Mai 2026</strong> Bescheid, ob ihr dabei seid.
+    </p>
+    <p style="color:var(--text-light);line-height:1.8;max-width:600px;margin-bottom:2.5rem;font-size:0.85rem;"
+       data-de="Unsere Einladung gilt persönlich für die in der Karte genannten Gäste. Wir bitten um euer Verständnis, dass wir keine zusätzlichen Begleitungen einplanen können."
+       data-en="Our invitation applies personally to the guests named on the card. We hope you understand that we're unable to accommodate additional plus-ones.">
+      Unsere Einladung gilt persönlich für die in der Karte genannten Gäste. Wir bitten um euer Verständnis, dass wir keine zusätzlichen Begleitungen einplanen können.
+    </p>
+
+    <div style="max-width:560px;">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:0.4rem;">Vorname *</label>
+          <input type="text" id="rsvp-first"
+            style="width:100%;padding:0.75rem 1rem;border:1px solid var(--cream-dark);background:#fff;font-family:'Jost',sans-serif;font-size:0.9rem;color:var(--text);outline:none;border-radius:2px;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='var(--sage)'" onblur="this.style.borderColor='var(--cream-dark)'" />
+        </div>
+        <div>
+          <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:0.4rem;">Nachname *</label>
+          <input type="text" id="rsvp-last"
+            style="width:100%;padding:0.75rem 1rem;border:1px solid var(--cream-dark);background:#fff;font-family:'Jost',sans-serif;font-size:0.9rem;color:var(--text);outline:none;border-radius:2px;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='var(--sage)'" onblur="this.style.borderColor='var(--cream-dark)'" />
+        </div>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:0.6rem;">Antwort *</label>
+        <div style="display:flex;gap:1rem;">
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:var(--text);">
+            <input type="radio" name="rsvp-answer" value="yes" style="accent-color:var(--sage);width:16px;height:16px;" />
+            <span>Ja, ich bin dabei! 🎉</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:var(--text);">
+            <input type="radio" name="rsvp-answer" value="no" style="accent-color:var(--sage);width:16px;height:16px;" />
+            <span>Leider kann ich nicht.</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:2rem;">
+        <label style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:0.4rem;">Allergien oder Ernährungsweise (optional)</label>
+        <input type="text" id="rsvp-diet"
+          placeholder="z. B. vegetarisch, Laktoseintoleranz …"
+          style="width:100%;padding:0.75rem 1rem;border:1px solid var(--cream-dark);background:#fff;font-family:'Jost',sans-serif;font-size:0.9rem;color:var(--text);outline:none;border-radius:2px;transition:border-color 0.2s;"
+          onfocus="this.style.borderColor='var(--sage)'" onblur="this.style.borderColor='var(--cream-dark)'" />
+      </div>
+
+      <button id="rsvp-btn" onclick="submitRsvp()"
+        style="background:var(--sage-dark);color:#fff;border:none;padding:0.9rem 2.5rem;font-family:'Jost',sans-serif;font-weight:300;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:background 0.3s ease;"
+        onmouseover="this.style.background='var(--sage)'" onmouseout="this.style.background='var(--sage-dark)'">
+        Absenden
+      </button>
+
+      <p id="rsvp-confirm" style="display:none;margin-top:1.5rem;font-size:0.88rem;color:var(--sage-dark);line-height:1.8;">
+        Vielen Dank! Wir freuen uns auf euch. 🌿
+      </p>
+
+    </div>
+  </div>
+</section>
+
     /* ── FOOTER ── */
     footer {
   background: var(--sage-dark);
@@ -1142,6 +1217,44 @@
   <div class="footer-date" data-de="25. Juli 2026 · Kopenhagen, Dänemark" data-en="25 July 2026 · Copenhagen, Denmark">25. Juli 2026 · Kopenhagen, Dänemark</div>
   <p style="margin-top:1.5rem;font-size:0.75rem;opacity:0.5;" data-de="Wir freuen uns auf euch 🌿" data-en="We can't wait to celebrate with you 🌿">Wir freuen uns auf euch 🌿</p>
 </footer>
+
+
+      // NEU RSVP:
+async function submitRsvp() {
+  const first = document.getElementById('rsvp-first').value.trim();
+  const last = document.getElementById('rsvp-last').value.trim();
+  const answer = document.querySelector('input[name="rsvp-answer"]:checked');
+  const diet = document.getElementById('rsvp-diet').value.trim();
+
+  if (!first || !last || !answer) {
+    alert('Bitte fülle alle Pflichtfelder aus.');
+    return;
+  }
+
+  const btn = document.getElementById('rsvp-btn');
+  btn.textContent = '...';
+  btn.disabled = true;
+
+  const res = await fetch('https://formspree.io/f/xjgplzea', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      vorname: first,
+      nachname: last,
+      antwort: answer.value === 'yes' ? 'Ja, ich bin dabei! 🎉' : 'Leider kann ich nicht.',
+      ernaehrung: diet || '–'
+    })
+  });
+
+  if (res.ok) {
+    document.getElementById('rsvp-confirm').style.display = 'block';
+    btn.style.display = 'none';
+  } else {
+    alert('Etwas hat nicht geklappt – bitte versuche es nochmal.');
+    btn.textContent = 'Absenden';
+    btn.disabled = false;
+  }
+}      
 
 <script>
   // NAV + LANG SWITCHER scroll effect
