@@ -262,11 +262,19 @@
     }
 
     /* ── SECTIONS SHARED ── */
-    section { padding: 7rem 2rem; }
+    section {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--cream);
+    }
 
     .section-inner {
+      width: 100%;
       max-width: 900px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
     }
 
     .section-label {
@@ -489,7 +497,7 @@
     }
 
     /* ── STAY ── */
-    .stay-section { background: var(--cream-dark); }
+    .stay-section { background: var(--cream); }
 
     .hotel-grid {
       display: grid;
@@ -580,12 +588,12 @@
     footer {
       background: var(--sage-dark);
       color: rgba(255,255,255,0.7);
-      text-align: center;
       padding: 4rem 2rem;
-      margin: 0;
       width: 100%;
-      display: block;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .footer-names {
@@ -1073,7 +1081,7 @@
 </div> <!-- schließt div#anreise -->
 
 <!-- FAQ -->
-<section style="background:var(--cream);" id="faq">
+<section style="background:var(--cream); margin-top: 5rem" id="faq">
   <div class="section-inner">
     <p class="section-label" data-de="Fragen & Antworten" data-en="Questions & Answers">Fragen & Antworten</p>
     <h2 class="section-title" data-de="Häufige <em>Fragen</em>" data-en="Frequently <em>Asked</em>">Häufige <em>Fragen</em></h2>
@@ -1221,7 +1229,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer style="position:absolute;bottom:0;left:0;">
+<footer>
   <div class="footer-names">Nina & Philipp</div>
   <div class="footer-date" data-de="25. Juli 2026 · Kopenhagen, Dänemark" data-en="25 July 2026 · Copenhagen, Denmark">25. Juli 2026 · Kopenhagen, Dänemark</div>
   <p style="margin-top:1.5rem;font-size:0.75rem;opacity:0.5;" data-de="Wir freuen uns auf euch 🌿" data-en="We can't wait to celebrate with you 🌿">Wir freuen uns auf euch 🌿</p>
